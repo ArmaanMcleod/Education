@@ -1,0 +1,60 @@
+Stage 1 Output
+index has 3007 terms and 23716 (d,fdt) pairs
+term 1 is "a":
+    12,1; 13,2; 14,5; 16,3; 17,1; 18,1; 19,1; 21,5; 22,6; 24,4; ...
+term 2 is "abide":
+    266,1; 827,1
+term 3006 is "zigzag":
+    211,1
+term 3007 is "zip":
+    820,1
+
+Stage 2 Output
+    "alice" is term 72
+    "queen" is term 2056
+    "off" is term 1760
+    "with" is term 2944
+    "her" is term 1206
+    "head" is term 1185
+
+Stage 3 Output
+    document 807: score 22.549
+    document 437: score 22.200
+    document 527: score 18.178
+
+Stage 2 Output
+    "mad" is term 1555
+    "hatter" is term 1179
+
+Stage 3 Output
+    document 292: score 10.694
+    document 290: score 10.306
+    document 313: score  9.350
+
+Stage 2 Output
+    "cat" is term 355
+    "vanished" is term 2815
+
+Stage 3 Output
+    document 302: score 17.463
+    document 306: score 17.463
+    document 310: score 12.354
+
+Stage 2 Output
+    "flamingo" is term 980
+
+Stage 3 Output
+    document 504: score  7.028
+    document 481: score  5.755
+    document 482: score  5.321
+
+Stage 2 Output
+    "looking" is term 1530
+    "glass" is term 1092
+
+Stage 3 Output
+    document 129: score  7.702
+    document 113: score  7.044
+    document 471: score  5.672
+
+Ta da-da-daaah...

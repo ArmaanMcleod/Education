@@ -1,0 +1,31 @@
+Stage 1 Output
+index has 23 terms and 43 (d,fdt) pairs
+term 1 is "and":
+    3,1; 5,2
+term 2 is "but":
+    3,1
+term 22 is "word":
+    1,1; 5,3
+term 23 is "words":
+    2,1
+
+Stage 2 Output
+    "four" is term 5
+    "and" is term 1
+    "five" is term 3
+
+Stage 3 Output
+    document   5: score  3.619
+    document   3: score  3.115
+    document   4: score  2.978
+
+Stage 2 Output
+    "line" is term 9
+    "seven" is not indexed
+
+Stage 3 Output
+    document   4: score  0.474
+    document   1: score  0.425
+    document   2: score  0.425
+
+Ta da-da-daaah...

@@ -1,0 +1,65 @@
+Stage 1 Output
+index has 95 terms and 118 (d,fdt) pairs
+term 1 is "a":
+    1,1
+term 2 is "algorithms":
+    1,1
+term 94 is "year":
+    3,1
+term 95 is "yet":
+    4,1
+
+Stage 2 Output
+    "scholar" is term 68
+    "enzed" is term 20
+
+Stage 3 Output
+    document   3: score  2.236
+    document   1: score  2.177
+
+Stage 2 Output
+    "he" is term 32
+    "said" is term 66
+    "his" is term 36
+    "program" is not indexed
+    "is" is not indexed
+    "a" is term 1
+    "beautiful" is not indexed
+    "thing" is not indexed
+
+Stage 3 Output
+    document   1: score  5.795
+    document   4: score  1.327
+    document   3: score  0.175
+
+Stage 2 Output
+    "algorithms" is term 2
+    "are" is not indexed
+    "fun" is not indexed
+    "this" is term 80
+    "year" is term 94
+
+Stage 3 Output
+    document   3: score  2.236
+    document   1: score  2.177
+    document   4: score  2.149
+
+Stage 2 Output
+    "submit" is not indexed
+    "early" is not indexed
+    "if" is not indexed
+    "you" is not indexed
+    "want" is not indexed
+    "to" is term 82
+    "feel" is term 23
+    "bright" is term 9
+    "and" is term 4
+    "avoid" is not indexed
+    "tears" is not indexed
+
+Stage 3 Output
+    document   2: score  4.981
+    document   4: score  0.866
+    document   1: score  0.757
+
+Ta da-da-daaah...
