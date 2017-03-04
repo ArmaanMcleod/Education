@@ -1,1 +1,1 @@
-Second project for COMP10001. A basic construction of a word-level speech recognition system, which was a challenging project, but a very fun program to write. 
+Second project for COMP10001. A basic construction of a word-level speech recognition system, which was a challenging project, but a very fun program to write. Learnt alot of python programming in this subject. 
