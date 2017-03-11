@@ -13,7 +13,7 @@
 
 # specifying the C Compiler and Compiler Flags for make to use
 CC     = gcc
-CFLAGS = -Wall
+CFLAGS = -Wall -Wextra
 
 # exe name and a list of object files that make up the program
 EXE    = main-2
