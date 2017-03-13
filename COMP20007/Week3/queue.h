@@ -2,11 +2,11 @@
 
 List *new_queue(void);
 
-void free_queue(List *queue);
+void free_queue(List *Queue);
 
-void queue_enqueue(List *queue, int data);
+void queue_enqueue(List *Queue, int data);
 
-void queue_deque(List *queue);
+void queue_deque(List *Queue);
 
-int queue_size(List *queue);
+int queue_size(List *Queue);
 
