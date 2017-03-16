@@ -1,12 +1,16 @@
 #include "list.h"
 
-List *new_queue(void);
+typedef struct {
+	List *queue;
+} Queue;
 
-void free_queue(List *Queue);
+Queue *new_queue(void);
 
-void queue_enqueue(List *Queue, int data);
+void free_queue(Queue *Q);
 
-void queue_deque(List *Queue);
+void queue_enqueue(Queue *Q, int data);
 
-int queue_size(List *Queue);
+void queue_deque(Queue *Q);
+
+int queue_size(Queue *Q);
 

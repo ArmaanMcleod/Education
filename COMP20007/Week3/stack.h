@@ -1,11 +1,15 @@
 #include "list.h"
 
-List *new_stack(void);
+typedef struct {
+	Node *top;
+} Stack;
 
-void free_stack(List *Stack);
+Stack *new_stack(void);
 
-void stack_push(List *Stack, int data);
+void free_stack(Stack *S);
 
-void stack_pop(List *Stack);
+void stack_push(Stack *S, int data);
 
-int stack_size(List *Stack);
+void stack_pop(Stack *S);
+
+int stack_size(Stack *S);

@@ -4,11 +4,11 @@
 #include "stack.h"
 
 int main(void) {
-	List *Queue = new_queue();
-	List *Stack = new_stack();
+	Queue *q = new_queue();
+	Stack *s = new_stack();
 
-	stack_push(Stack, 1);
-	queue_enqueue(Queue, 1);
+	stack_push(s, 1);
+	queue_enqueue(q, 1);
 	
 	return 0;
 }
