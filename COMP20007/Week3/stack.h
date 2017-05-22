@@ -1,7 +1,7 @@
 #include "list.h"
 
 typedef struct {
-	Node *top;
+	List *stack;
 } Stack;
 
 Stack *new_stack(void);

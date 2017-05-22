@@ -8,7 +8,8 @@ Stack *new_stack(void) {
 	Stack *newstack = malloc(sizeof(*newstack));
 	assert(newstack != NULL);
 
-	newstack->top = NULL;
+	newstack->stack = new_list();
+	assert(newstack->stack != NULL);
 
 	return newstack;
 }
