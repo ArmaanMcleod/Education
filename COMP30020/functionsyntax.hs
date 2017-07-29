@@ -55,6 +55,18 @@ length' :: (Num b) => [a] -> b
 length' [] = 0
 length' (_:xs) = 1 + length' xs
 
+-- sums a list
 sum :: [Int] -> Int
 sum [] = 0
 sum(x:xs) = x + sum xs
+
+-- maximum element in list
+maxList :: [Int] ->Int
+maxList [x] = x
+maxList (x:xs)
+    | x > maxxs = x
+    | otherwise = maxxs
+    where maxxs = maximum xs
+
+
+    
