@@ -54,3 +54,7 @@ tell (x:y:_) = "This list is long. The first two elements are: " ++ show x ++ " 
 length' :: (Num b) => [a] -> b
 length' [] = 0
 length' (_:xs) = 1 + length' xs
+
+sum :: [Int] -> Int
+sum [] = 0
+sum(x:xs) = x + sum xs
