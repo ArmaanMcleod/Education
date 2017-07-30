@@ -1,5 +1,4 @@
 -- quicksort
-
 qsort :: [Int] -> [Int]
 qsort [] = []
 qsort (pivot:others) = (qsort lowers) ++ [pivot] ++ (qsort highers)
@@ -25,5 +24,12 @@ msort [] = []
 msort [x] = [x]
 msort xs = merge (msort(firstHalf xs)) (msort (secondHalf xs))
 
+-- polymorphic quicksort
+
+qsort :: (Ord a) => [a] -> [a]
+qsort [] = []
+qsort (pivot:others) = (qsort lowers) ++ [pivot] ++ (qsort highers)
+    where lowers = filter (<pivot) others
+          highers = filter (>=pivot) others
 
 

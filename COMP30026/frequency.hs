@@ -1,11 +1,8 @@
 import Data.List
 
-distinctElem :: [Int] -> [Int]
-distinctElem [] = []
-distinctElem xs = sort (nub xs)
-
+-- groups and counts frequencies
 groupAll :: [Int] -> [[Int]]
 groupAll xs = group (sort xs)
 
 frequency :: [Int] -> [Int] 
-frequency list = map (\l -> length l) (groupAll list)
+frequency list = map length (groupAll list)
