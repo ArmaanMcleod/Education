@@ -8,7 +8,8 @@ public class MathTestTwo {
     public static void main(String args[]) {
         double x, alpha, beta;
         final int hypo = 10;
-        double bottomSide = 7.2;
+        final double bottomSide = 7.2;
+        final int oneEightyDegrees = 180, nintyDegrees = 90;
         
         /* side x */
         x = Math.sqrt((hypo * hypo) - (bottomSide * bottomSide));
@@ -19,7 +20,7 @@ public class MathTestTwo {
         System.out.println(alpha);
         
         /* beta */
-        beta = 180 - 90 - alpha;
+        beta = oneEightyDegrees - nintyDegrees - alpha;
         System.out.println(beta);
     }
 }
