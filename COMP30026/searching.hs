@@ -15,6 +15,7 @@ bsearch x ys
     where mid = (length ys) `div` 2
           val = ys!!mid
     
+    
 -- all search
 evn :: Int -> Bool
 evn x = x `mod` 2 == 0

@@ -8,6 +8,11 @@ append x [] = x
 append [] y = y
 append x y = x ++ y
 
+append' :: [a] -> [a] -> [a]
+append' x [] = x
+append' [] y = y
+append' (x: xs) ys = x : append xs ys
+
 -- question 7
 myReverse :: [a] -> [a]
 myReverse [] = []
@@ -16,7 +21,9 @@ myReverse (x:xs) =  myReverse xs ++ [x]
 
 -- question 8
 getNthElem :: Int -> [a] -> a
-getNthElem x xs = xs !! (x-1)
+getNthElem _ [] = error "Index too large"
+getNthElem 0 (x:xs) = x
+getNthElem x xs = getNthElem (n-1) xs
 
 
 
