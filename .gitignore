@@ -12,7 +12,6 @@ COMP20007/Assignment1/Files/report.pdf
 COMP20007/Assignment1/Files/sample/
 COMP20007/Assignment1/Files/stack.o
 COMP20007/Assignment1/Files/traverse.o
-COMP20007/Assignment1/sample/
 COMP20007/Assignment1/testing/Usage
 COMP20007/Assignment1/testing/a1
 COMP20007/Assignment1/testing/diffresult/
@@ -52,10 +51,9 @@ COMP20007/Assignment2/valgrindoutput.txt
 COMP20007/Assignment2/xtndbln-s4.txt
 COMP20007/Assignment2/xuckoo.txt
 COMP20007/Week3/main-1.o
-COMP20007/Week6/
-COMP20007/Week7/
-COMP20007/Week8/
 COMP20007/sample.tar.gz
-COMP20008/
+COMP20008/.ipynb_checkpoints/
+COMP20008/.royal2.xml.swp
+COMP20008/README.md
 OtherCFiles/testfree
 OtherCFiles/testfree.c
