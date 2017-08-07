@@ -32,12 +32,6 @@ public class Encrypt {
         /* add quotation marks to string */
         copyText = String.format("\"%s\"", copyText);
 
-        char ch;
-
-        for (ch = 'a'; ch <= 'z'; ch++) {
-        	System.out.format("%c %c\n", ch, (char)('z' - (ch - 'a')));
-        }
-        
         System.out.println(copyText);
     }
 }					
