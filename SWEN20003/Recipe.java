@@ -18,12 +18,17 @@ public class Recipe {
         
         /* calculating total recipe cost */
         for (int i = 0; i < 3; i++) {
+
+            /* parsing text */
             quantity = Integer.parseInt(recipe.substring(start,middle));
             price = Double.parseDouble(recipe.substring(middle,end));
             total += quantity * price;
+
+            /* cutting off parsed section of string */
             recipe = recipe.substring(end);
         }
        
+        /* printing out result */
         System.out.println("Total recipe price: " + total);
         
     }
