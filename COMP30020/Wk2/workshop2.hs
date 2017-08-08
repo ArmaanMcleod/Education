@@ -34,6 +34,10 @@ longestPrefix [] _ = []
 longestPrefix (x:xs) (y:ys)
     | x == y = x : longestPrefix xs ys 
     | otherwise = []
+
+-- Question 7
+minmax :: Int -> Int -> [Int]
+minmax min max = [min..max]
     
 
 
