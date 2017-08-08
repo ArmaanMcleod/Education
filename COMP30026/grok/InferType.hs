@@ -1,3 +1,8 @@
+{-The function to the right doesn't compile because it uses a type synonym that has not been included!
+
+  Figure out what the type synonym should be, and add it so the function will compile.
+-}
+
 -- put your type synonym definition here:
 type Message = (String, Int)
 -- or ([Char], Int)

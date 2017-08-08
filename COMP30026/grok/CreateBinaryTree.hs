@@ -1,3 +1,15 @@
+{-Now it's your turn:
+
+  Define a function tree which takes no arguments and returns the following Tree of integers:
+
+
+         (3)
+        /   \
+      (9)   (7)
+      /  \
+    (10) (5)
+-}
+
 data Tree a = Node a (Tree a) (Tree a) | Empty
     deriving Show
 
