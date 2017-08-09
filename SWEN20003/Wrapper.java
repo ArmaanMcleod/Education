@@ -11,7 +11,7 @@ public class Wrapper {
 		final int numberToRotate = -31;
 
 		/* Integer conversions */
-		int reverseInteger = Integer.reverse(2017);
+		int reverseInteger = Integer.reverse(numberToConvert);
 		int rotateInteger = Integer.rotateRight(numberToRotate, 3);
 
 		/* Double class constants */
