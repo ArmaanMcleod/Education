@@ -8,6 +8,7 @@ subst a b xs = [if x == a then b else x | x <- xs]
 
 -- Question 2
 interleave :: [t] -> [t] -> [t]
+interleave [] [] = []
 interleave xs [] = xs
 interleave [] ys = ys
 interleave (x:xs) (y:ys) = x : y : interleave xs ys

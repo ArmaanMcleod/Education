@@ -40,6 +40,30 @@ minmax :: Int -> Int -> [Int]
 minmax min max = [min..max]
     
 
+-- Question 2
+-- type constructor = data Card
+-- data constructor = Card Suit Rank
+data Card = Card Suit Rank | Joker
+    deriving (Eq, Show)
+
+data Suit = Hearts | Diamonds | Spades | Clubs
+    deriving (Eq, Show)
+
+data Rank = Ace | Two | Three | Four | Five | Six | Seven |
+            Eight | Nine | Jack | Queen | King
+    deriving (Eq, Show)
+
+
+-- Question 3 Html font tags
+-- Record constructors {}
+data HTMLFontTag = HTMLFontTag {fontFace :: Maybe String
+                                , fontSize :: Maybe Int
+                                , fontColour :: Maybe Colour}
+
+data Colour = CRGB Int Int Int | CHEX Int | CNAME String
+
+
+
 
 
 
