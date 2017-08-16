@@ -4,13 +4,13 @@ public class WorkingElevator {
 	public static void main(String[] args) {
 
 		/* Important constants declared */
-		final char FLOOR_LOWER = 'f';
-		final char FLOOR_UPPER = 'F';
+        final char FLOOR_LOWER = 'f';
+        final char FLOOR_UPPER = 'F';
 
-		final char DOOR_LOWER = 'd';
-		final char DOOR_UPPER = 'D';
+        final char DOOR_LOWER = 'd';
+        final char DOOR_UPPER = 'D';
 
-		final int MIN_FLOOR = 0;
+        final int MIN_FLOOR = 0;
         final int MAX_FLOOR = 9;
 
         final int MAX_PEOPLE = 12;
