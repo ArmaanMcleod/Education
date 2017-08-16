@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class WorkingElevator {
 	public static void main(String[] args) {
 
-		/* Important constants declared */
+        /* Important constants declared */
         final char FLOOR_LOWER = 'f';
         final char FLOOR_UPPER = 'F';
 
@@ -21,38 +21,39 @@ public class WorkingElevator {
         boolean letPassengerOut = false;
 
         /* Created scanner object */
-		Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
-		while (scanner.hasNextLine()) {
-			String input = scanner.nextLine();
+        while (scanner.hasNextLine()) {
+            String input = scanner.nextLine();
 
-			/* Get the first character from input */
-			char command = input.charAt(0);
+            /* Get the first character from input */
+            char command = input.charAt(0);
 
-			// If the character is a digit, it's a floor command
-			if (command == FLOOR_UPPER || command == FLOOR_LOWER) {
+            // If the character is a digit, it's a floor command
+            if (command == FLOOR_UPPER || command == FLOOR_LOWER) {
 
-				if (letPassengerOut == false) {
-					if (!doorsOpen) {
-					    // Accept the rest of the command
-					    nextFloor = scanner.nextInt();
-					    scanner.nextLine();
+                if (letPassengerOut == false) {
 
-					    // Validate the input
-					    if (nextFloor < MIN_FLOOR || nextFloor > MAX_FLOOR) {
-	                        System.out.println("Error: Invalid floor");
-	                    } else if (currentFloor == nextFloor) {
-	                        System.out.println("Error: Already on floor " + currentFloor);
-	                    } else {
-	                        System.out.format("Action: Moving from floor %d " +
+                    if (!doorsOpen) {
+                        // Accept the rest of the command
+                        nextFloor = scanner.nextInt();
+                        scanner.nextLine();
+
+                        // Validate the input
+                        if (nextFloor < MIN_FLOOR || nextFloor > MAX_FLOOR)
+                            System.out.println("Error: Invalid floor");
+                        } else if (currentFloor == nextFloo
+                            System.out.println("Error: Already on floor " + currentFloor);
+                        } else {
+                            System.out.format("Action: Moving from floor %d " +
                                               "to floor %d\n",
 	                                           currentFloor, nextFloor);
 	                    
-	                        currentFloor = nextFloor;
-	                        letPassengerOut = true;
+                            currentFloor = nextFloor;
+                            letPassengerOut = true;
 	                    }
-				    } else {
-					    System.out.println("Error: Doors must " + 
+                    } else {
+                        System.out.println("Error: Doors must " + 
                                            "be closed to move!");
 				    }
 				} else {
