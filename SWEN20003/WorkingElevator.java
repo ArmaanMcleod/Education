@@ -84,6 +84,7 @@ public class WorkingElevator {
 	                System.out.println("Error: Invalid door command");
 	            }
 
+            // Invalid command was reached
 	        } else {
                 System.out.println("Error: Invalid command");
             }
