@@ -8,7 +8,7 @@ public class CaeserCipher {
 	public static final String ENCODE = "Encode";
 	public static final String DECODE = "Decode";
 
-	public static final int MAX_LETTERS = 26;
+	public static final int MAX_LETTERS = ALPHABET.length();
 
 	public static void main(String[] args) {
 
