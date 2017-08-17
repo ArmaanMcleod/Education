@@ -23,17 +23,20 @@ public class CaeserCipher {
 				break;
 			}
 
-			/* Getting shift */
+			/* Reading in shift from user*/
 			System.out.print("Enter n: ");
 			int n = scanner.nextInt();
 			scanner.nextLine();
 
+			/* Reading in text from user */
 			System.out.print("Enter text to convert: ");
 			String text = scanner.nextLine();
 
+			/* Replace text with uppercase and no whitespace */
 			text = text.replace(" ", "");
 			text = text.toUpperCase();
   			
+  			/* Performs encoding */
   			if (direction.equals(ENCODE)) {
 
   				String encoding = "";
@@ -47,6 +50,7 @@ public class CaeserCipher {
   				System.out.println(text);
   				System.out.println(encoding);
 
+  			/* Performs decoding */
   			} else if (direction.equals(DECODE)) {
 
   				String decoding = "";
