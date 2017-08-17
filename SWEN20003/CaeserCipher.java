@@ -16,7 +16,6 @@ public class CaeserCipher {
 
 		while (scanner.hasNextLine()) {
 
-            /* Reads in direction */
 			String direction = scanner.nextLine();
 			if (direction.equals(END)) {
 				break;
