@@ -11,6 +11,7 @@ public class CaeserCipher {
 	public static final int MAX_LETTERS = ALPHABET.length();
 
 	public static void main(String[] args) {
+        /* Create scanner object */
 		Scanner scanner = new Scanner(System.in);
         
 		System.out.print("Encoding/Decoding? ");
