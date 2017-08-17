@@ -17,7 +17,7 @@ public class CaeserCipher {
 		System.out.print("Encoding/Decoding? ");
 
 		while (scanner.hasNextLine()) {
-
+            /* Getting direction from user */
 			String direction = scanner.nextLine();
 			if (direction.equals(END)) {
 				break;
