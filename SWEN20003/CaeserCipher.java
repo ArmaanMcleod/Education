@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class CaeserCipher {
 
+    /* Some useful constants */
 	public static final String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	public static final String END = "Stop";
 	public static final String ENCODE = "Encode";
@@ -11,7 +12,7 @@ public class CaeserCipher {
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-
+        
 		System.out.print("Encoding/Decoding? ");
 
 		while (scanner.hasNextLine()) {
