@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class CaeserCipher {
 
-    /* Some useful constants */
+	/* Some useful constants */
 	public static final String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	public static final String END = "Stop";
 	public static final String ENCODE = "Encode";
@@ -11,18 +11,19 @@ public class CaeserCipher {
 	public static final int MAX_LETTERS = ALPHABET.length();
 
 	public static void main(String[] args) {
-        /* Create scanner object */
+		/* Create scanner object */
 		Scanner scanner = new Scanner(System.in);
-        
+		        
 		System.out.print("Encoding/Decoding? ");
 
 		while (scanner.hasNextLine()) {
-            /* Getting direction from user */
+			/* Getting direction from user */
 			String direction = scanner.nextLine();
 			if (direction.equals(END)) {
 				break;
 			}
 
+			/* Getting shift */
 			System.out.print("Enter n: ");
 			int n = scanner.nextInt();
 			scanner.nextLine();
