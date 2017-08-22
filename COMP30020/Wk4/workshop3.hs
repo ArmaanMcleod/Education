@@ -31,10 +31,10 @@ quadRoots a b c
       right = sqrt(det/denom)
       denom = 2 * a
 
-isSorted' :: (Ord a) => [a] -> Bool
-isSorted' [_] = True
-isSorted' (x:xs)
-    | x <= head xs = isSorted' xs
+isSorted :: (Ord a) => [a] -> Bool
+isSorted [_] = True
+isSorted (x:xs)
+    | x <= head xs = isSorted xs
     | otherwise = False
 
 -- Question 4
