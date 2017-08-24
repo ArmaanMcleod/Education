@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.Arrays;
 
 public class WordSmith {
     /* Useful constant defined */
@@ -35,9 +34,9 @@ public class WordSmith {
             String mostVowels = mostVowelsWord(words);
 
             /* store words in data structure */
-            data[i][0] = alphaWord;
+            data[i][0] = longWord;
             data[i][1] = mostVowels;
-            data[i][2] = longWord;
+            data[i][2] = alphaWord;
 
         }
 
@@ -79,15 +78,15 @@ public class WordSmith {
 
     /* Gets the word with most vowels */
     public static String mostVowelsWord(String[] words) {
-        int maxVowelCount = 0;
+        int maxVowelCount = ;
         String mostVowels = null;
 
         for (String word : words) {
             int vowelCount = 0;
             String temp = word.toLowerCase();
 
-            for (int v = 0; v < word.length(); v++) {
-                char x = word.charAt(v);
+            for (int v = 0; v < temp.length(); v++) {
+                char x = temp.charAt(v);
 
                 if (x == 'a' || x == 'e' || x == 'i' || x == 'o' || x == 'u') {
                     vowelCount++;
@@ -103,7 +102,7 @@ public class WordSmith {
         return mostVowels;
     }
 
-    /* Prints words out */
+    /* Prints words out word */
     public static void printWords(String[][] words, int rows, int cols) {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols-1; j++) {
