@@ -1,0 +1,72 @@
+import java.io.FileReader;
+import java.io.BufferedReader;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import grok.Input;
+
+public class Program {
+        
+    private static final int N_CHARS = 26;
+    private static final String OUTPUT_FILE = "encoded.txt";
+
+    public static void main(String[] args) {
+        
+        String filename = Input.readLine("Enter filename: ");
+        int shift = Integer.parseInt(Input.readLine("Enter shift value: "));
+        String direction = Input.readLine("Encode/Decode? ");
+        
+        try (BufferedReader br = new BufferedReader(new FileReader(filename));
+             PrintWriter pw = new PrintWriter(new FileWriter(OUTPUT_FILE))) {
+            
+            String text;
+            
+            boolean encode = direction.equals("Encode");
+            
+            while ((text = br.readLine()) != null) {
+                
+                String convertedText = convertText(text, shift, encode);
+                
+                if (convertedText != null) {
+                    pw.println(convertedText);
+                }
+                
+            }
+         
+        } catch (Exception e) {
+            e.printStackTrace();  
+        }
+            
+    }
+        
+    private static char convertCharacter(char c, int shift, boolean encode) {
+        if (encode) {
+            return (char) ('A' + (c - 'A' + shift)%N_CHARS);
+        } else {
+            return (char) ('Z' - ('Z' - c + shift)%N_CHARS);
+        }
+    }
+
+    private static String convertText(String text, int shift, boolean encode) {
+        // Remove what space (spaces, newlines, etc)
+        text = text.replaceAll("\\s+", "");
+
+        // Convert text to upper case for simplicity
+        text = text.toUpperCase();
+        
+        if (text.length() == 0) {
+            return null;
+        }
+
+        // We're going to build a new String while converting
+        String newText = "";
+
+        // Now loop through all the characters and perform the shift
+        for (int i = 0; i < text.length(); i++) {
+            char c = text.charAt(i);
+
+            newText += convertCharacter(c, shift, encode);
+        }
+        
+        return newText;
+    }
+}
