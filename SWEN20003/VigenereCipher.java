@@ -4,7 +4,7 @@ public class VigenereCipher {
 
     public static final int N_CHARS = 26;
 
-    public static final String STOP = "stop";
+    public static final String STOP = "STOP";
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -16,7 +16,7 @@ public class VigenereCipher {
         while (scanner.hasNextLine()) {
 
             String input = scanner.nextLine();
-            String checker = input;
+            String checker = input.toLowerCase();
             if (checker.equals(STOP)) {
                 break;
             }
