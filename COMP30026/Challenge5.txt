@@ -1,0 +1,14 @@
+a = n + (X Z) + Y
+b = s + m + (X -Z)
+c = s + (Y Z) + -X
+d = m + l
+e = n + p
+f = -Y + Z + X
+g = (X -Y Z) + n + l
+
+m = (X -Y)
+n = -(X + Z)
+p = (Y -Z)
+s = -(Y + Z)
+t = (-X Y)
+l = p + t
