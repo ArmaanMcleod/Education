@@ -79,9 +79,9 @@ nextGuess (target, currentGameState) score = (guess, newGameState)
 -- Returns the best guess
 maxBestGuess :: GameState -> [String]
 maxBestGuess gameState = bestGuess
-    where bestGuess = snd $ foldr search acc gameState
+    where bestGuess = snd $ foldr searchMax acc gameState
           acc = (length chordCombinations, [])
-          search target acc
+          searchMax target acc
               | fst acc > len = (len, target)
               | otherwise = acc
               where len = maxGroupTargets target gameState
