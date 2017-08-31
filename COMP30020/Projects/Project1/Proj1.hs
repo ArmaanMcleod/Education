@@ -89,9 +89,9 @@ maxBestGuess gameState = snd bestGuess
 -- Takes in a list of strings and a game state
 -- Returns the maximum length of a group of targets
 maxGroupTargets :: [String] -> GameState -> Int
-maxGroupTargets target gameState = max lenList
-    where max [] = 0
-          max xs = maximum xs
+maxGroupTargets target gameState = max' lenList
+    where max' [] = 0
+          max' xs = maximum xs
           groupedList = groupTargets target gameState
           lenList = [length x | x <- groupedList]
 
