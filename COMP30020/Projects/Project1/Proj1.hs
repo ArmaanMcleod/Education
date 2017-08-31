@@ -62,13 +62,13 @@ firstGuess = ["A1", "B1", "C3"]
 -- Takes no input arguements
 -- Returns a pair of an initial guess and game state
 initialGuess :: ([String], GameState)
-initialGuess = (firstGuess, (delete firstGuess chordCombinations))
+initialGuess = (firstGuess, chordCombinations)
 
 -- Takes as input a pair of previous guess and game state,
 -- and the feedback to this guess as a triple of correct pitches, notes,
 -- octaves, and returns a pair of the next guess and game state
 nextGuess :: ([String], GameState) -> Score -> ([String], GameState)
-nextGuess (target, currentGameState) score = (guess, (delete guess newGameState))
+nextGuess (target, currentGameState) score = (guess, newGameState)
     where guess        = maxBestGuess newGameState
           newGameState = filterList currentGameState target score
 
@@ -78,12 +78,13 @@ nextGuess (target, currentGameState) score = (guess, (delete guess newGameState)
 -- Takes in a game state
 -- Returns the best guess
 maxBestGuess :: GameState -> [String]
-maxBestGuess gameState = snd bestGuess
-    where bestGuess = foldr search (length chordCombinations,[]) gameState
-          search = (\target acc -> 
-                    let len = maxGroupTargets target gameState
-                        currmax = (len, target)
-                    in if fst acc > len then currmax else acc)
+maxBestGuess gameState = bestGuess
+    where bestGuess = snd $ foldr search acc gameState
+          acc = (length chordCombinations, [])
+          search target acc
+              | fst acc > len = (len, target)
+              | otherwise = acc
+              where len = maxGroupTargets target gameState
 
 -- Finds the maximum target from a group
 -- Takes in a list of strings and a game state
