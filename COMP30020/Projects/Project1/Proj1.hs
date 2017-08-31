@@ -41,7 +41,7 @@ pitchCombinations n (x:xs) = start ++ others
               | n <= length xs = pitchCombinations n xs
               | otherwise = []
 
--- Similar to 'pitthCombinations'
+-- Similar to 'pitchCombinations'
 -- This function is more convenient to call
 -- Takes in no arguements
 -- Returns a game state
@@ -62,13 +62,13 @@ firstGuess = ["A1", "B1", "C3"]
 -- Takes no input arguements
 -- Returns a pair of an initial guess and game state
 initialGuess :: ([String], GameState)
-initialGuess = (firstGuess, chordCombinations)
+initialGuess = (firstGuess, (delete firstGuess chordCombinations))
 
 -- Takes as input a pair of previous guess and game state,
 -- and the feedback to this guess as a triple of correct pitches, notes,
 -- octaves, and returns a pair of the next guess and game state
 nextGuess :: ([String], GameState) -> Score -> ([String], GameState)
-nextGuess (target, currentGameState) score = (guess, newGameState)
+nextGuess (target, currentGameState) score = (guess, (delete guess newGameState))
     where guess        = maxBestGuess newGameState
           newGameState = filterList currentGameState target score
 
@@ -78,14 +78,13 @@ nextGuess (target, currentGameState) score = (guess, newGameState)
 -- Takes in a game state
 -- Returns the best guess
 maxBestGuess :: GameState -> [String]
-maxBestGuess gameState = snd $ foldr go (length chordCombinations,[]) gameState
-    where go = (\x acc -> 
-                let len = maxGroupTargets x gameState
-                    max = (len, x)
-                    in case() of 
-                        _ | fst acc > len -> max
-                          | otherwise -> acc)
-              
+maxBestGuess gameState = snd bestGuess
+    where bestGuess = foldr search (length chordCombinations,[]) gameState
+          search = (\target acc -> 
+                    let len = maxGroupTargets target gameState
+                        currmax = (len, target)
+                    in if fst acc > len then currmax else acc)
+
 -- Finds the maximum target from a group
 -- Takes in a list of strings and a game state
 -- Returns the maximum length of a group of targets
@@ -104,8 +103,6 @@ groupTargets :: [String] -> GameState -> [[Score]]
 groupTargets target gameState = group $ sortBy (comparing Down) xs
     where xs = [response target x | x <- gameState]
 
--- Credit https://rosettacode.org/wiki/Remove_duplicate_elements#Haskell
--- Idea taken from above site, code written by me
 -- Removes duplicate items in list
 -- Takes in a list
 -- Returns a list without duplicates
