@@ -157,7 +157,7 @@ lengthScore cmp distinctList guess
     | otherwise = pitchLen
     where pitchLen      = length $ mutualElements distinctList guess
           noteOctaveLen = length $ deleteFirstsBy (equality cmp) 
-                          distinctList guess
+                                   distinctList guess
 
 -- Filters down a list checking all possible targets
 -- Looks at the current feedback score, and compares it with
