@@ -1,4 +1,4 @@
---  File           : proj1.hs
+--  File           : Proj1.hs
 --  Author         : Armaan Dhaliwal-McLeod
 --  Student Number : 837674
 --  Subject        : COMP30020 Declarative Programming
@@ -8,7 +8,6 @@ module Proj1 (initialGuess, nextGuess, GameState) where
 
 -- Libraries used in this module
 import Data.List 
-import Data.Ord
 
 -- Game State type
 -- Used for storing previous targets
@@ -21,24 +20,24 @@ type Score = (Int, Int, Int)
 data MusicalType = Pitch | Note | Octave
     deriving (Eq, Show, Ord)
 
--- Produces all possible pitch combinations 
+-- Produces all possible pitches
 -- Takes in two lists of strings
 -- Returns a list of strings
-allCombinations :: [String] -> [String] -> [String]
-allCombinations xs ys = [x ++ y | x <- xs, y <- ys]
+-- E.g ["A1", "A2", "A3", "B1", ...........]
+pitchCombinations :: [String] -> [String] -> [String]
+pitchCombinations xs ys = [x ++ y | x <- xs, y <- ys]
 
 -- Credit https://wiki.haskell.org/99_questions/Solutions/26
--- Idea taken from above site, code written by me
--- Produces all possible combinations of pitches
--- Takes in a integer, and list of strings
--- Returns a game state type
-pitchCombinations :: Int -> [String] -> GameState
-pitchCombinations _ [] = [[]]
-pitchCombinations 0 _ = [[]]
-pitchCombinations n (x:xs) = start ++ others
-    where start = [x : rest | rest <- pitchCombinations(n-1) xs]
+-- Produces all possible combinations of pitches in groups of 'n'
+-- Takes in a integer 'n', and list of strings
+-- Returns a game state type of all 'n' combinations
+allCombinations :: Int -> [String] -> GameState
+allCombinations _ [] = [[]]
+allCombinations 0 _ = [[]]
+allCombinations n (x:xs) = start ++ others
+    where start = [x : rest | rest <- allCombinations(n-1) xs]
           others
-              | n <= length xs = pitchCombinations n xs
+              | n <= length xs = allCombinations n xs
               | otherwise = []
 
 -- Similar to 'pitchCombinations'
@@ -46,10 +45,11 @@ pitchCombinations n (x:xs) = start ++ others
 -- Takes in no arguements
 -- Returns a game state
 chordCombinations :: GameState
-chordCombinations = pitchCombinations 3 $ allCombinations notes octaves
+chordCombinations = allCombinations n $ pitchCombinations notes octaves
     where
         notes = [[x] | x <- ['A'..'G']]
         octaves = [show y | y <- [1..3]]
+        n = 3
 
 -- Hardcoded first guess
 -- This was found through thorough testing
@@ -97,11 +97,11 @@ maxGroupTargets target gameState = max' lenList
           lenList = [length x | x <- groupedList]
 
 -- Groups targets by scores
--- Sorts groups in reverse order to improve efficiency
+-- Sorts groups to improve efficiency
 -- Takes in a list of strings and a game state
 -- Returns a nested list of grouped scores
 groupTargets :: [String] -> GameState -> [[Score]]
-groupTargets target gameState = group $ sortBy (comparing Down) xs
+groupTargets target gameState = group $ sort xs
     where xs = [response target x | x <- gameState]
 
 -- Removes duplicate items in list
@@ -139,16 +139,25 @@ equality cmp xs ys
 -- Takes in two list of strings
 -- Returns a tuple of scores
 response :: [String] -> [String] -> Score
-response target guess = (pitches, notes ,octaves)
+response target guess    = (pitches, notes ,octaves)
     where distinctList   = uniqueElements target
           lengthDistinct = length $ distinctList
-          lenNotes       = length $ deleteFirstsBy (equality Note) 
-                                    distinctList guess
-          lenOctaves     = length $ deleteFirstsBy (equality Octave)
-                                    distinctList guess
-          pitches        = length $ mutualElements distinctList guess
+          lenNotes       = lengthScore Note distinctList guess
+          lenOctaves     = lengthScore Octave distinctList guess
+          pitches        = lengthScore Pitch distinctList guess
           notes          = lengthDistinct - lenNotes - pitches
           octaves        = lengthDistinct - lenOctaves - pitches
+
+-- Computes lengths of lists, depending on musical type given
+-- Takes in a musical type and two lists
+-- Returns an integer
+lengthScore :: MusicalType -> [String] -> [String] -> Int
+lengthScore cmp distinctList guess
+    | (cmp == Note) || (cmp == Octave) = noteOctaveLen
+    | otherwise = pitchLen
+    where pitchLen      = length $ mutualElements distinctList guess
+          noteOctaveLen = length $ deleteFirstsBy (equality cmp) 
+                          distinctList guess
 
 -- Filters down a list checking all possible targets
 -- Looks at the current feedback score, and compares it with
