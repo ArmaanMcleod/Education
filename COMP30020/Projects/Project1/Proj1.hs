@@ -41,19 +41,19 @@ pitchCombinations xs ys = [x ++ y | x <- xs, y <- ys]
 
 -- Credit https://wiki.haskell.org/99_questions/Solutions/26
 -- Inspiration taken from here, code written by me 
--- Produces all possible combinations of pitches in groups of 'n'
--- Takes in a integer 'n', and list of strings
--- Returns a game state type of all 'n' combinations
+-- Produces all possible combinations of pitches
+-- Takes in a integer 'k', and list of strings
+-- Returns a game state type of all 'k' combinations
 allCombinations :: Int -> [String] -> GameState
 allCombinations _ [] = [[]]
 allCombinations 0 _ = [[]]
-allCombinations n (x:xs) = start ++ others
-    where start = [x : rest | rest <- leftovers (n-1) xs]
-          others
-              | n <= length xs = leftovers n xs
-              | otherwise = []
+allCombinations k (x:xs) = start ++ others
+    where start = [x : rest | rest <- leftovers (k-1) xs]
           leftovers = allCombinations
-
+          others
+              | k <= length xs = leftovers k xs
+              | otherwise = []
+    
 -- Similar to 'pitchCombinations'
 -- This function is more convenient to call
 -- Calls function only using constant 'numPitches' as value for n
@@ -120,7 +120,7 @@ groupTargets target gameState = group $ sort xs
     where xs = [response target x | x <- gameState]
 
 -- Determines which part of a Musical note is to be compared
--- Returns Truenif both components(pitch, note, octave) are 
+-- Returns True if both components(pitch, note, octave) are 
 -- the same, False otherwise
 -- Takes in a Musical type, two lists
 -- Returns Boolean
