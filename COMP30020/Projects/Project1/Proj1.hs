@@ -12,7 +12,7 @@
  -}
 
 -- Module declaration
-module Proj1 (initialGuess, nextGuess, GameState) where 
+module Proj1 (initialGuess, nextGuess, GameState) where
 
 -- Libraries used in this module
 import Data.List 
@@ -30,7 +30,7 @@ data MusicalType = Pitch | Note | Octave
     deriving (Eq, Show, Ord)
 
 -- Constant symbolizing number of pitches in a musical note
-numPitches= 3
+_NUMPITCHES= 3
 
 -- Produces all possible pitches
 -- Takes in two lists of strings
@@ -60,7 +60,7 @@ allCombinations k (x:xs) = start ++ others
 -- Takes in no arguements
 -- Returns a game state, 1330 targets
 chordCombinations :: GameState
-chordCombinations = allCombinations numPitches $ 
+chordCombinations = allCombinations _NUMPITCHES $ 
                     pitchCombinations notes octaves
     where
         notes = [[x] | x <- ['A'..'G']]
