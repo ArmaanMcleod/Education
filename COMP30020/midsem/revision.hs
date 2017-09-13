@@ -4,6 +4,8 @@ data List a = ListNode a (List a) | ListEnd
 
 data Tree k v = Node k v (Tree k v) (Tree k v) | Leaf
 
+data BST a = Empty | Item (BST a) a (BST a)
+
 min' :: (Ord a) => a -> a -> a
 min' a b
     | a >= b = b
@@ -70,7 +72,9 @@ minimumList (ListNode x xs)
    | otherwise = mins
    where mins = minimumList xs 
 
-countNodes :: Tree k v -> Int
-countNodes Leaf = 0
-countNodes (Node k v l r) = 1 + countNodes l + countNodes r
-
+insertBST :: (Ord a) => a -> BST a -> BST a
+insertBST x Empty = Item Empty x Empty
+insertBST x (Item l y r)
+    | x < y = Item (insertBST x l) y r
+    | x > y = Item l y (insertBST x r)
+    | otherwise = (Item l x r)
