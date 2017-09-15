@@ -124,6 +124,11 @@ groupTargets target gameState = group $ sort xs
 -- the same, False otherwise
 -- Takes in a Musical type, two lists
 -- Returns Boolean
+-- Takes in a guess and a target
+-- Returns a tuple of scores
+-- NOTE: I used my own function which 
+response :: [String] -> [String] -> Score
+
 equality :: (Eq a) => MusicalType -> [a] -> [a] -> Bool
 equality cmp xs ys
     | cmp == Note = xs !! 0 == ys !! 0
@@ -131,10 +136,6 @@ equality cmp xs ys
     | otherwise = xs == ys
 
 -- Computes the correct answer to a guess
--- Takes in a guess and a target
--- Returns a tuple of scores
--- NOTE: I used my own function which 
-response :: [String] -> [String] -> Score
 response target guess    = (pitches, notes ,octaves)
     where distinctList   = nub target
           lengthDistinct = length distinctList
