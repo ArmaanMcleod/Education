@@ -1,18 +1,17 @@
-is_list([]).
-is_list([_|T]) :-
-    is_list(T).
+% Question 1
+% correspond(E1, L1, E2, L2)
+correspond(X, [X|_], Y, [Y|_]).
+correspond(E1, [_|Xs], E2, [_|Ys]) :-
+    correspond(E1, Xs, E2, Ys).
 
-correspond(E1, [X|Xs], E2, [Y|Ys]) :-
-    is_list([X|Xs]),
-    is_list([Y|Ys]),
-    ( E1 == X ->
-        E2 is Y,
-        correspond(E1, Xs, E2, Ys)
-    ).
+% Question 2
+% interleave(Ls, L)
+interleave([], []).
+interleave([L|Ls], L) :-
+    interleave(Ls, T),
+    append(L, T, )
 
     
-
-
 
 
 
