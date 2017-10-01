@@ -1,27 +1,41 @@
 % libraries loaded
 :- ensure_loaded(library(clpfd)).
 
-% Puzzle solver
+% 2 x 2 Solver
 puzzle_solution(Puzzle) :-
+    (
+        length(Puzzle, 3),
+        diagonal_2_by_2(Puzzle)
+    ;
+        length(Puzzle, 4),
+        diagonal_3_by_3(Puzzle)
+    ;
+        length(Puzzle, 5),
+        diagonal_4_by_4(Puzzle)
+   ),
+
     Puzzle = [_|T],
-    check_diagonal(T),
     maplist(is_valid_heading, T),
     transpose(Puzzle, [_|T2]),
     maplist(is_valid_heading, T2).
 
-% Checks if puzzle has same diagonal values
-check_diagonal(X) :-
-    add_diagonal(X, 1, Y), 
-    all_same(Y).
+diagonal_2_by_2([[_, _, _],
+                 [_, R12, _],
+                 [_, _, R23]]) :-
+    all_same([R12, R23]).
 
-% Creates a list of all the diagonal values
-add_diagonal([], _, []).
-add_diagonal([X|Xs], I, Y) :-
-    nth0(I, X, E),
-    I1 is I + 1,
-    append([E], R, Y),
-    add_diagonal(Xs, I1, R).
+diagonal_3_by_3([[_, _, _, _],
+                 [_, R12, _, _],
+                 [_, _, R23, _],
+                 [_, _ ,_, R34]]) :-
+    all_same([R12, R23, R34]).
 
+diagonal_4_by_4([[_, _, _, _, _],
+                 [_, R12, _, _, _],
+                 [_, _, R23, _, _],
+                 [_, _, _, R34, _],
+                 [_, _, _, _, R45]]) :-
+    all_same([R12, R23, R34, R45]).
 
 % Checks if a heading holds the sum of product of the given
 % row or column
@@ -56,6 +70,4 @@ check_product(Xs, P) :- foldl(product, Xs, 1, P).
 % Checks if all elements are equal
 all_same([]).   
 all_same([_]).
-all_same([X, X|T]) :- 
-    all_same([X|T]).
-
+all_same([X, X|T]) :- all_same([X|T]).
