@@ -24,6 +24,15 @@ diagonal_2_by_2([[_, _, _],
                  [_, _, R23]]) :-
     all_same([R12, R23]).
 
+puzzle_solution([[_, R02, R03],
+                [R11, R12, R13],
+                [R21, R22, R23]]) :-
+    R12 = R23,
+    is_valid_heading([R11, R12, R13]),
+    is_valid_heading([R21, R22, R23]),
+    is_valid_heading([R02, R12, R22]),
+    is_valid_heading([R03, R13, R23]).
+
 diagonal_3_by_3([[_, _, _, _],
                  [_, R12, _, _],
                  [_, _, R23, _],

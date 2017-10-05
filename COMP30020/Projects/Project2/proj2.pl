@@ -22,14 +22,13 @@ add_diagonal([X|Xs], I, Y) :-
     append([E], R, Y),
     add_diagonal(Xs, I1, R).
 
-
 % Checks if a heading holds the sum of product of the given
 % row or column
 is_valid_heading([X|Xs]) :-
     check_range(Xs),
     check_repeats(Xs),
     (
-        check_sums([X|Xs])
+        sum_list(Xs, X)
     ;   
         check_product(Xs, X)
     ).
@@ -45,9 +44,6 @@ check_range([X|Xs]) :-
 
 % Checks repeated elements in list
 check_repeats(Xs) :- all_different(Xs).
-
-% Checks sum of header
-check_sums([X|Xs]) :- sum_list(Xs, X).
 
 % Checks product of header
 product(A, B, P) :- P is A * B.
