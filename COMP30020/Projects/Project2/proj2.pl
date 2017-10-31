@@ -5,6 +5,7 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
+%% Description
 %% The purpose of this project is to solve maths puzzles with the Prolog
 %% programming language. A maths puzzle is a grid of squares, with each
 %% square to be filled with a single digit 1-9 satisfying some constraints.
@@ -24,6 +25,7 @@
 %% above. It is assumed that a proper maths puzzle will have at most one
 %% solution.
 
+%% My Strategy
 %% My solution to this problem is not complicated, and simply backtracks all_same
 %% solutions until it finds a solution. I first applied Hint 1, by unifying 
 %% the diagonals. This was done by skipping the first row of the puzzle, and
@@ -45,7 +47,7 @@
 % libraries loaded
 :- ensure_loaded(library(clpfd)).
 
-% puzzle_solution(Puzzle)
+%% puzzle_solution(Puzzle)
 % Generates a solution to a maths puzzle passed as a proper list
 % First remove first row from puzzle
 % Then check the diagonals are the same
@@ -60,14 +62,14 @@ puzzle_solution(Puzzle) :-
     transpose(Puzzle, [_|T2]),
     maplist(is_valid_heading, T2).
 
-% check_diagonal(Puzzle)
+%% check_diagonal(Puzzle)
 % Obtain the list of diagonal elements
 % Check if they are all the same
 check_diagonal(X) :-
     get_diagonal(X, 1, Y), 
     all_same(Y).
 
-% get_diagonal(List, index, List)
+%% get_diagonal(List, index, List)
 % Base case for when the lists become empty
 % Get the ith element, starting at 1
 % Increment the index for the next row
@@ -80,7 +82,7 @@ get_diagonal([X|Xs], I, Y) :-
     append([E], R, Y),
     get_diagonal(Xs, I1, R).
 
-% is_valid_heading(List)
+%% is_valid_heading(List)
 % First check the range of the heading elements, excluding the heading
 % Check that no repeated elements occur with all_different/1
 % Check if the heading elements are the sum or product of the heading
@@ -94,7 +96,7 @@ is_valid_heading([X|Xs]) :-
         check_product(Xs, X)
     ).
 
-% check_range(List)
+%% check_range(List)
 % Ensure base case for empty lists
 % Use between/3 to ensure element element is between Low and High
 % Recurse through the rest of the elements
@@ -105,11 +107,11 @@ check_range([X|Xs]) :-
    between(L, H, X),
    check_range(Xs).
 
-% product(Left, Right, Product)
+%% product(Left, Right, Product)
 % Calculates the product of 2 numbers
 product(A, B, P) :- P is A * B.
 
-% check_product(List, Product)
+%% check_product(List, Product)
 % Calculates product of list using foldl/4
 % Inspiration taken here:
 % https://stackoverflow.com/questions/33645947/
@@ -117,7 +119,7 @@ product(A, B, P) :- P is A * B.
 % Code understood and written by me
 check_product(Xs, P) :- foldl(product, Xs, 1, P).
 
-% all_same(List)
+%% all_same(List)
 % Checks if all the elements in a list are the same
 % First use base cases to check for empty of single
 % element lists. 
