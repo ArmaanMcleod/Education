@@ -202,3 +202,16 @@ compBase 'T' 'A' = True
 compBase 'C' 'G' = True
 compBase 'G' 'C' = True
 compBase  _   _  = False
+
+keepl :: Int -> [a] -> [a]
+keepl _ [] = []
+keepl k xs = [last x | x <- splitlists k xs, length x == k]
+
+splitlists :: Int -> [a] -> [[a]]
+splitlists _ [] = []
+splitlists k xs = first : (splitlists k rest)
+    where
+        (first, rest) = splitAt k xs
+
+oddlists :: [a] -> [[a]]
+oddlists [] = [[]]
