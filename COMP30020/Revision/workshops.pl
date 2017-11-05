@@ -120,5 +120,48 @@ times(W, X, Y, Z) :-
 
     (W * X) + Y is Z.
 
+mydrop(N, [X|Xs], Back) :-
+    (N = 0 ->
+        append([X], Xs, Back)
+    ;
+        N0 is N - 1,
+        mydrop(N0, Xs, Back)
+    ).
 
 
+multiply(X, Y, XY) :-
+    multiply1(X, Y, 0, XY).
+
+multiply1(X, Y, A, XY) :-
+    (X = 0 ->
+        XY = A
+    ; 
+        X1 is X - 1,
+        A1 is A + Y,
+        multiply1(X1, Y, A1, XY)
+    ).
+
+filter(_, [], []).
+filter(P, [X|Xs], Filtered) :-
+    (call(P, X) ->
+        Filtered = [X|Filtered1]
+    ;
+        Filtered = Filtered1
+    ),
+    filter(P, Xs, Filtered1).
+
+map(_, [], []).
+map(P, [X|Xs], [Y|Ys]) :-
+    call(P, X, Y),
+    map(P, Xs, Ys).
+
+
+sort_sublists([], []).
+sort_sublists([X|Xs], List) :-
+    (integer(X) ->
+        List = [X | List1]
+    ;
+        sort(X, Sorted),
+        List = [Sorted | List1]
+    ),
+    sort_sublists(Xs, List1).

@@ -148,4 +148,67 @@ str_to_num xs
     where intlist = str_to_int_list xs
           go [] acc = acc
           go (x:xs) acc = go xs ((acc * 10) + x)
+
+
           
+read_lines_sum :: IO Int
+read_lines_sum = do
+    line <- getLine
+    let num = str_to_num line
+    case num of
+        Nothing -> return 0
+        Just num -> do
+                sum <- read_lines_sum
+                return (num + sum)
+
+
+read_lines_sum' :: IO Int
+read_lines_sum' = 
+        getLine >>= 
+        \line -> case str_to_num line of
+            Nothing -> return 0
+            Just num -> 
+                read_lines_sum' >>=
+                \sum -> return (num + sum)
+
+sum_lines_list :: IO Int
+sum_lines_list = do
+    nums <- list_num_lines
+    return (sum nums)
+
+list_num_lines :: IO [Int]
+list_num_lines = do
+    line <- getLine
+    let num = str_to_num line
+    case num of
+        Nothing -> return []
+        Just num -> do
+            nums <- list_num_lines
+            return (num:nums)
+
+-- Workshop 11
+
+fib :: Int -> Integer
+fib 0 = 0
+fib 1 = 1
+fib n = fib(n-1) + fib(n-2)
+
+allfibs :: [Integer]
+allfibs = [x | x <- zipWith (+) fibs (tail fibs)]
+    where fibs = map fib [0..]
+
+-- Extra
+
+mysum :: [Int] -> Int
+mysum xs = foldr (+) 0 xs
+
+myproduct :: [Int] -> Int
+myproduct xs = foldr (*) 1 xs
+
+fold_map :: (a -> b) -> [a] -> [b]
+fold_map _ [] = []
+fold_map f xs = foldr (\y ys -> f y:ys) [] xs
+
+fold_filter :: (a -> Bool) -> [a] -> [a]
+fold_filter _ [] = []
+fold_filter f xs = foldr (\y ys -> if f y then y:ys else ys) [] xs

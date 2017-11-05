@@ -213,5 +213,8 @@ splitlists k xs = first : (splitlists k rest)
     where
         (first, rest) = splitAt k xs
 
-oddlists :: [a] -> [[a]]
-oddlists [] = [[]]
+filter_map :: (a -> Bool) -> (a -> b) -> [a] -> [b]
+filter_map _ _ [] = []
+filter_map f1 f2 (x:xs) = 
+    let newxs = filter_map f1 f2 xs
+    in if f1 x then f2 x : newxs else newxs
