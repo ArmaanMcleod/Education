@@ -1,4 +1,6 @@
 import Data.List
+import Data.Char
+
 
 -- Linked List data constructor
 data List a = ListNode a (List a) | ListEnd
@@ -218,3 +220,17 @@ filter_map _ _ [] = []
 filter_map f1 f2 (x:xs) = 
     let newxs = filter_map f1 f2 xs
     in if f1 x then f2 x : newxs else newxs
+
+getList :: Integer -> [Integer]
+getList n = [toInteger (digitToInt x) | x <- show n]
+
+groupList :: [Integer] -> [(Integer, Int)]
+groupList xs = nub [(x,c) | x <- xs, let c = (length . filter (==x)) xs, c > 0]
+
+getSequence :: [(Integer, Int)] -> [Integer]
+getSequence (x:xs) = snd x : fst x : getSequence xs
+
+getLists :: Integer -> [Integer]
+getLists 0 = []
+getLists 1 = [1]
+getLists n = 
