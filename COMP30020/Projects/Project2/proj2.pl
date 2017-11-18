@@ -26,11 +26,11 @@
 %% solution.
 
 %% My Strategy
-%% My solution to this problem is not complicated, and simply backtracks all_same
-%% solutions until it finds a solution. I first applied Hint 1, by unifying 
-%% the diagonals. This was done by skipping the first row of the puzzle, and
-%% accumulating all the diagonal elements into one list. If the list had
-%% identical elements, then the diagonals are valid. 
+%% My solution to this problem is not complicated, and simply backtracks all
+%% same solutions until it finds a solution. I first applied Hint 1, by
+%% unifying the diagonals. This was done by skipping the first row of the 
+%% puzzle, andaccumulating all the diagonal elements into one list. If the
+%% list had identical elements, then the diagonals are valid. 
 %% I then applied Hint 2, and checked checked that the rows and
 %% columns are valid. This was done by first checking that each row was
 %% either the sum or the product of the header, then transposing the puzzle

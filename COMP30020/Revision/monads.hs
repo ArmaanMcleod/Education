@@ -36,3 +36,4 @@ greet2 = do
     town <- getLine
     let msg = "Welcome, " ++ name ++ " from " ++ town
     putStrLn msg
+

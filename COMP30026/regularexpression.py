@@ -37,3 +37,6 @@ def get_valid_expression(expressions, minlen, char_to_check):
 print("Valid expressions with all substrings of length 3 containing exactly one c:")
 print(get_valid_expression(expressions, 3, "c"))
 
+^.{0,2}$|^[^c]{0,2}(c[^c]{2})*c[^c]{0,2}$
+
+^[abc]{0,2}$|^[ab]{0,2}(c[ab]{2})*c[ab]{0,2}$

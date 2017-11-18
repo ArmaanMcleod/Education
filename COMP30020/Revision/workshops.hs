@@ -212,3 +212,57 @@ fold_map f xs = foldr (\y ys -> f y:ys) [] xs
 fold_filter :: (a -> Bool) -> [a] -> [a]
 fold_filter _ [] = []
 fold_filter f xs = foldr (\y ys -> if f y then y:ys else ys) [] xs
+
+--data BST a = Empty | Elem (BST a) a (BST a)
+--deriving (Show, Eq, Ord)
+map_BST :: (a -> a) -> BST a -> BST a
+map_BST _ Empty = Empty
+map_BST f (Elem Empty x Empty) = (Elem Empty (f x) Empty)
+map_BST f (Elem l x r) = Elem (map_BST f l) (f x) (map_BST f r)
+
+sumTuples list = foldl (\(xAcc, yAcc) (x, y) -> (xAcc + x, yAcc + y)) (0,0) list
+
+merge_three :: [Int] -> [Int] -> [Int] -> [Int]
+merge_three xs ys zs = concat [[a,b,c] | (a,b,c) <- zip3 xs ys zs]
+
+subList :: (Eq a) => [a] -> [a] -> Bool
+subList [] [] = True
+subList xs ys = any (==xs) subys
+    where subys = (split_lists (length xs) ys)
+
+subList' :: (Eq a) => [a] -> [a] -> Bool
+subList' [] [] = True
+subList' xs ys = check_lists xs subys
+    where subys = (split_lists (length xs) ys)
+
+check_lists :: (Eq a) => [a] -> [[a]] -> Bool
+check_lists _ [] = False
+check_lists xs (y:ys)
+    | xs == y = True
+    | otherwise = check_lists xs ys
+
+split_lists :: Int -> [a] -> [[a]]
+split_lists _ [] = []
+split_lists n xs
+    | length first == n = first : restxs
+    | otherwise = restxs
+    where (first, rest) = splitAt n xs
+          restxs = split_lists n (tail first ++ rest)
+
+split_lists' :: Int -> [a] -> [[a]]
+split_lists' _ [] = []
+split_lists' n xs = filter (\x -> length x == n) list
+    where list = take n xs : split_lists' n (drop 1 xs)
+
+combine:: [String] -> [String] -> [String]
+combine xs ys = [x ++ y | (x, y) <- zip xs ys]
+
+combine' :: [String] -> [String] -> [String]
+combine' xs ys = zipWith (++) xs ys
+
+subtotal :: (Num a) => [a] -> [a]
+subtotal [] = []
+subtotal [x] = [x]
+subtotal xs = go xs 0
+    where go [] acc = []
+          go (x:xs) acc = (acc+x) : go xs (acc+x)

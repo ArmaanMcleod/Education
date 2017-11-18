@@ -221,16 +221,11 @@ filter_map f1 f2 (x:xs) =
     let newxs = filter_map f1 f2 xs
     in if f1 x then f2 x : newxs else newxs
 
-getList :: Integer -> [Integer]
-getList n = [toInteger (digitToInt x) | x <- show n]
 
-groupList :: [Integer] -> [(Integer, Int)]
-groupList xs = nub [(x,c) | x <- xs, let c = (length . filter (==x)) xs, c > 0]
+rep :: Int -> [String] -> [String]
+rep _ [] = []
+rep n (x:xs) = [x | r <- [1..n]] ++ rep n xs
 
-getSequence :: [(Integer, Int)] -> [Integer]
-getSequence (x:xs) = snd x : fst x : getSequence xs
 
-getLists :: Integer -> [Integer]
-getLists 0 = []
-getLists 1 = [1]
-getLists n = 
+
+
