@@ -10,14 +10,14 @@ public class CountLetter {
 
         HashMap<Character, Integer> counts = getCounts(test);
 
-        System.out.println("All Letter-Frequency Pairs:");
+        System.out.println("All Letter-Frequency Pairs:")
         for (HashMap.Entry<Character, Integer> entry : counts.entrySet()) {
             System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
         }
 
         List<HashMap.Entry<Character, Integer>> topThree = getTop(counts, 3);
 
-        System.out.println("\nTop 3 Letter-Frequency Pairs:");
+        System.out.println("\n Top 3 Letter-Frequency Pairs:");
         for (HashMap.Entry<Character, Integer> entry : topThree) {
             System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
         }
