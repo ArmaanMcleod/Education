@@ -1,10 +1,8 @@
 Question 1
-Team Name
-Ideo Trio
+* Ideo Trio
 
 Question 2
-OpenIDEO challenge
-How might we inspire experiences and expressions of gratitude in the workplace
+* How might we inspire experiences and expressions of gratitude in the workplace
 
 Question 3
 
@@ -13,10 +11,9 @@ What are the different types of people suffering from this problem?
 * to themselves may not express gratitude towards other workers. Alot of busy
 * workers may not find the time to show their gratitude towards collegues.
 * Bosses suffer from this problem, as many workers would feel that they do not
-* recieve enough praise from their work. The list goes on. 
+* recieve enough praise from their work.
 
-
-What are the different types of people suffering from this problem?
+How prevalent is the problem? How many people are impacted by it?
 * Workers suffer from this problem. In 2013, a survey of 2000 workers by the
 * John Templelton Foundation showed that 60% of workers never show gratitude
 * towards their collegues. Out of these 2000 workers, most felt better when
@@ -24,4 +21,56 @@ What are the different types of people suffering from this problem?
 * towards fellow co-workers is indeed a mood booster. Furthermore, 81% of
 * respondents also noted that that they would work harder if their bosses showed
 * more gratitude.
+
+What is the economic and social consequences of this problem?
+* This problem mainly deals with social consquences. The lack in expression of
+* gratitude in the workplace leads to workers feeling undervalued. This then
+* causes workers to lose motivation in their work and not perform their best.
+* This can also lead to clashes and enimosity between collegues, since workers
+* can feel unappreciated and resentment when their work is not being praised. 
+
+What are the possible causes?
+* Managers not ackknowledging employees when they perform a task correctly.
+* Instead many focus more on critizing mistakes more often.
+* Since alot of workers are busy, they do not have the time to express gratitude
+* to all their collegues. 
+* No real workplace social media for workplace collegues to share ideas and give feedback
+* about ideas.
+
+What are the current solutions being explored?
+* tapmyback: An app for improving workplace motivation and boosting team
+* performace. 
+* WooBoard: Employee recognition platform for creating a happy, motivated and
+* engaged workplace. 
+
+Question 4
+
+Basic idea
+* We want to create a online community for companies where collegues can share
+* contributions to the the workplace. These contributions can be stories,
+* event organisation, team updates etc. Gratitude can be expressed through the
+* quick use of upvoting, favouriting, contructive feedback through
+* messaging/commenting on posts This allows coworkers show gratitude in many
+* different ways through social media. A good example of the a similar interface would be
+* StackOverflow. 
+
+Some Features
+* Upvoting contributions
+* News feed of current topics in workplace
+* Teams should have their own pages, where members of each team are listed
+* Moderators will be added to perform tasks
+* Many rewards such as site reputation, badges, credits
+* Many forms of communication available, such as commenting and messaging
+* Chat rooms will be created
+* active directory of employees and authentication
+
+Stakeholders
+* Companies 
+* Startups 
+* Businesses
+* Any sort of workplace interested in creating a reward based online community
+* for employees
+
+
+
 
