@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8 />
+	<title> INFO30005 :: JavaScript - Workshop #3 </title>
+	<script>
+
+		function js_new_style() {
+			var button = document.getElementById('style');
+			console.log(button);
+
+			var paragraph = document.getElementById('text');
+
+			if (button.innerText === 'New style') {
+				paragraph.style.fontSize = '25px';
+				paragraph.style.fontFamily = 'sans-serif';
+				paragraph.style.color = 'indigo';
+
+				button.innerText = 'Old style';
+			} else {	
+				paragraph.removeAttribute('style');
+
+				button.innerText = 'New style';
+			}
+		}
+	</script> 
+</head> 
+<body>
+
+	<p id ='text'> Javascript DOM :: Changing paragraph style</p>
+<div>
+	<button id="style" onclick="js_new_style()">New style</button>
+</div>
+</body>
+</html>

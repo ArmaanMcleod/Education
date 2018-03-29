@@ -1,35 +1,70 @@
-<center>
-<div id="wordTiles">
-  <!--
-  <div class=”char">w</div>
-  <div class=”char">o</div>
-  <div class=”char">r</div>
-  <div class=”char">d</div>
-   -->
-</div>
-<br></br>
-<form>
-  <label>Enter your guess</label>
-  <input type="text" name="guess">
-  <button>Submit</button>
-</form>
-<br></br>
-<br></br>
-Game board
-<hr width=20%>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GameBoard</title>
+  <meta charset=utf-8 />
+
+  <style>
+    body {
+      text-align: center;
+    }
+
+    hr {
+      width: 30%;
+    }
+
+    table {
+      border: 1px solid black;
+      margin: 0 auto;
+    }
+
+    .char {
+      border: 1px solid black;
+      width: 1em;
+      height: 1em;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="wordTiles">
+    <!--
+    <div class=”char">w</div>
+    <div class=”char">o</div>
+    <div class=”char">r</div>
+    <div class=”char">d</div>
+     -->
+  </div>
+  <br>
+  <form>
+    <label>Enter your guess</label>
+    <input type="text" name="guess">
+    <button id='submit'>Submit</button>
+  </form>
+  <br>
+  <br>
+  Game board
+  <hr>
+
+  <table id="gameboard">
+    <tr>
+      <th>Incorrect Guesses</th>
+      <td id='incorrect'>000</td>
+    </tr>
+    <tr>
+      <th>Remaining Guesses</th>
+      <td id='remaining'>000</td>
+    </tr>
+  </table>
+  <hr>
+  <br>
+  <button id='set'>Set word to be guessed</button>
+
+  <button id='reset'>Reset</button>
+
+  <script src='ws3js.js' onclick='reset()'`></script>
+</body>
+</html>
 
 
-<table id="gameboard" border=1>
-  <tr>
-    <th>Incorrect Guesses</th>
-    <td>000</td>
-  </tr>
-  <tr>
-    <th>Remaining Guesses</th>
-    <td>000</td>
-  </tr>
-</table>
-<hr width=20%>
-<br></br>
-<button>Set word to be guessed</button>
-</center>

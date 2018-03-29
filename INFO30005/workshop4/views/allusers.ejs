@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>All Users</title>
+	</head>
+	<body>
+		<% for(var i=0; i < users.length; i++) { %>
+			<a href="users/<%= i %>"><%= users[i].name %></a>
+		<% } %>
+	</body>
+</html>
